@@ -1,0 +1,22 @@
+{%extends 'base.html'%} {%block title%} {{court.name}} {{court.number}}
+{%endblock%} {%block content%}
+<div class="card">
+  <div class="card-body">
+    <p class="title">{{court.name}}</p>
+    <p class="card-text">Number: {{court.number}}</p>
+    {%if court.is_occupied%}
+    <p class="card-text">
+      Occupied: Yes , Occupied at: {{court.occupation_time|date:" H:i:s"}}
+    </p>
+    <a class="btn btn-primary" href="{%url 'end_court_occupation' court.id%}"
+      >End Occupation</a
+    >
+    {%else%}
+    <p class="card-text">Occupied: No</p>
+    <a class="btn btn-primary" href="{%url 'occupy_court' court.id%}">Occupy</a>
+
+    {%endif%}
+  </div>
+</div>
+<a href="{%url 'courts'%}" class="btn btn-primary mt-3">Go Back</a>
+{%endblock%}

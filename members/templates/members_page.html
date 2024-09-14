@@ -1,0 +1,14 @@
+{%extends 'base.html'%} {%block title%}Members {%endblock%} {%block content%}
+<h1>This is the members list</h1>
+<div class="container">
+  <ul class="list-group">
+    {%for member in members%}
+    <li class="list-group-item">
+      <a class="text-decoration-none" href="member_details/{{member.id}}"
+        >{{member.fname}} {{member.lname}}</a
+      >
+    </li>
+    {%endfor%}
+  </ul>
+</div>
+{%endblock%}

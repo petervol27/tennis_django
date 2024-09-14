@@ -1,0 +1,21 @@
+{%extends 'base.html'%} {%block title%}Courts {%endblock%} {%block content%}
+<h1>This is the Courts list</h1>
+<div class="container">
+  <ul class="list-group">
+    {%for court in courts%}
+    <li class="list-group-item">
+      <a class="text-decoration-none" href="court_details/{{court.id}}">
+        <p>{{court.name}} number {{court.number}}</p></a
+      >
+      {%if court.is_occupied%}
+      <p>
+        Occupied: Yes , Occupied at: {{court.occupation_time| date:"H:i:s"}}
+      </p>
+      {%else%}
+      <p>Occupied: No</p>
+      {%endif%}
+    </li>
+    {%endfor%}
+  </ul>
+</div>
+{%endblock%}

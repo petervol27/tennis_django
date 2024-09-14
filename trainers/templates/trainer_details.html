@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block title%} {{trainer.fname}} {{trainer.lname}} {%endblock%}
+{%block content%}
+<div class="card">
+  <div class="card-body">
+    <p class="title">{{trainer.fname}} {{trainer.lname}}</p>
+    <p class="card-text">Email: {{trainer.email}}</p>
+    <p class="card-text">Phone: {{trainer.phone}}</p>
+  </div>
+</div>
+<a href="{%url 'trainers'%}" class="btn btn-primary mt-3">Go Back</a>
+{%endblock%}

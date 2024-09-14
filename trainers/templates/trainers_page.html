@@ -1,0 +1,14 @@
+{%extends 'base.html'%} {%block title%}Trainers {%endblock%} {%block content%}
+<h1>This is the trainers list</h1>
+<div class="container">
+  <ul class="list-group">
+    {%for trainer in trainers%}
+    <li class="list-group-item">
+      <a class="text-decoration-none" href="trainer_details/{{trainer.id}}"
+        >{{trainer.fname}} {{trainer.lname}}</a
+      >
+    </li>
+    {%endfor%}
+  </ul>
+</div>
+{%endblock%}
