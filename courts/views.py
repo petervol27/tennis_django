@@ -6,14 +6,15 @@ from .models import Court
 
 
 def courts(request):
-    courts = Court.objects.all().values()
+    courts = Court.objects.all()
     context = {"courts": courts}
     return render(request, "courts_page.html", context=context)
 
 
 def court_details(request, id):
     court = Court.objects.get(id=id)
-    context = {"court": court}
+    members = court.members.all()
+    context = {"court": court, "members": members}
     return render(request, "court_details.html", context)
 
 

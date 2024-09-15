@@ -4,9 +4,16 @@
   <div class="card-body">
     <p class="title">{{court.name}}</p>
     <p class="card-text">Number: {{court.number}}</p>
+
     {%if court.is_occupied%}
+    <ul class="list-group container mx-auto w-25 mt-3">
+      <h4>Currently Occupied by:</h4>
+      {%for member in members%}
+      <li class="list-group-item">{{member}}</li>
+      {%endfor%}
+    </ul>
     <p class="card-text">
-      Occupied: Yes , Occupied at: {{court.occupation_time|date:" H:i:s"}}
+      Occupied at: {{court.occupation_time|date:" H:i:s"}}
     </p>
     <a class="btn btn-primary" href="{%url 'end_court_occupation' court.id%}"
       >End Occupation</a

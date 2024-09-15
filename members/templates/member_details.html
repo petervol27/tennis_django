@@ -6,7 +6,9 @@
     <p class="card-text">Email: {{member.email}}</p>
     <p class="card-text">Phone: {{member.phone}}</p>
     <p class="card-text">Joined at: {{member.join_date}}</p>
-    <p class="card-text">Trained by: {{member.trainer}}</p>
+    {% if member.court%}
+    <p class="card-text">At {{member.court}} Court</p>
+    {%else%} {%endif%}
   </div>
 </div>
 <a href="{%url 'members'%}" class="btn btn-primary mt-3">Go Back</a>

@@ -5,7 +5,8 @@
     {%for member in members%}
     <li class="list-group-item">
       <a class="text-decoration-none" href="member_details/{{member.id}}"
-        >{{member.fname}} {{member.lname}}</a
+        >{{member.fname}} {{member.lname}} {% if member.court%}at
+        {{member.court}}{%else%} {%endif%}</a
       >
     </li>
     {%endfor%}

@@ -14,6 +14,12 @@
       {%else%}
       <p>Occupied: No</p>
       {%endif%}
+      <ul class="list-group container mx-auto w-25 mt-3">
+        <h4>Currently Occupied by:</h4>
+        {%with court.members.all as members%} {%for member in members%}
+        <li class="list-group-item">{{member}}</li>
+        {%endfor%} {%endwith%}
+      </ul>
     </li>
     {%endfor%}
   </ul>

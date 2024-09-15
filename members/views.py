@@ -5,7 +5,7 @@ from .models import Member
 
 # Create your views here.
 def members(request):
-    members = Member.objects.all().values()
+    members = Member.objects.all()
     context = {"members": members}
     return render(request, "members_page.html", context=context)
 
