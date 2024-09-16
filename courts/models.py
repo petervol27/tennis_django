@@ -12,10 +12,10 @@ class Court(models.Model):
     def __str__(self):
         return self.name
 
-    def occupy(self, m1, m2):
+    def reserve(self):
         self.is_occupied = True
         self.occupation_time = timezone.now()
 
-    def end_occupation(self, m1, m2):
+    def end_reserve(self):
         self.is_occupied = False
         self.occupation_time = None

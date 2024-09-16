@@ -16,8 +16,11 @@ class Member(models.Model):
     #     Trainer, on_delete=models.SET_NULL, null=True, related_name="members"
     # )
     court = models.ForeignKey(
-        Court, on_delete=models.SET_NULL, null=True, related_name="members"
+        Court, on_delete=models.SET_NULL, null=True, blank=True, related_name="members"
     )
 
     def __str__(self):
         return f"{self.fname} {self.lname} "
+
+    def save_court_to_member(self, court):
+        self.court = court

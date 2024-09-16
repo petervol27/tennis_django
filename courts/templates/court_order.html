@@ -22,6 +22,9 @@
     </select>
   </div>
   <button class="btn btn-primary mt-2" type="submit">Reserve</button>
+  {%if errortxt%}
+  <h5 class="text-danger mt-3">{{errortxt}}</h5>
+  {%endif%}
 </form>
 
 {%endblock%}

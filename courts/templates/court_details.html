@@ -15,7 +15,7 @@
     <p class="card-text">
       Reserved at: {{court.occupation_time|date:" H:i:s"}}
     </p>
-    <a class="btn btn-danger" href="{%url 'end_court_occupation' court.id%}"
+    <a class="btn btn-danger" href="{%url 'end_reservation' court.id %}"
       >End Reservation</a
     >
     {%else%}
