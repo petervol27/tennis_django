@@ -5,21 +5,22 @@
     {%for court in courts%}
     <li class="list-group-item">
       <a class="text-decoration-none" href="court_details/{{court.id}}">
-        <p>{{court.name}} number {{court.number}}</p></a
+        <p>{{court.name}} - {{court.number}}</p></a
       >
       {%if court.is_occupied%}
       <p>
-        Occupied: Yes , Occupied at: {{court.occupation_time| date:"H:i:s"}}
+        Reserved: Yes , Reserved at: {{court.occupation_time| date:"H:i:s"}}
       </p>
-      {%else%}
-      <p>Occupied: No</p>
-      {%endif%}
       <ul class="list-group container mx-auto w-25 mt-3">
-        <h4>Currently Occupied by:</h4>
+        <h4>Currently Reserved by:</h4>
         {%with court.members.all as members%} {%for member in members%}
         <li class="list-group-item">{{member}}</li>
         {%endfor%} {%endwith%}
       </ul>
+      {%else%}
+      <p>Reserved: No</p>
+
+      {%endif%}
     </li>
     {%endfor%}
   </ul>

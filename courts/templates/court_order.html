@@ -1,0 +1,27 @@
+{%extends 'base.html'%} {%block title%} {{court.name}} {{court.number}}
+{%endblock%} {%block content%}
+<h1>Court Reservation {{court.name}}</h1>
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group w-25 mx-auto">
+    <label for="member1">First Member:</label>
+    <select class="form-control" id="member1" name="member1">
+      <option value="">Select a member</option>
+      {%for member in available_members%}
+      <option value="{{member.id}}">{{member}}</option>
+      {%endfor%}
+    </select>
+  </div>
+  <div class="form-group w-25 mx-auto">
+    <label for="member2">Second Member:</label>
+    <select class="form-control" id="member2" name="member2">
+      <option value="">Select a member</option>
+      {%for member in available_members%}
+      <option value="{{member.id}}">{{member}}</option>
+      {%endfor%}
+    </select>
+  </div>
+  <button class="btn btn-primary mt-2" type="submit">Reserve</button>
+</form>
+
+{%endblock%}

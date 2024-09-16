@@ -7,20 +7,22 @@
 
     {%if court.is_occupied%}
     <ul class="list-group container mx-auto w-25 mt-3">
-      <h4>Currently Occupied by:</h4>
+      <h4>Currently Reserved by:</h4>
       {%for member in members%}
       <li class="list-group-item">{{member}}</li>
       {%endfor%}
     </ul>
     <p class="card-text">
-      Occupied at: {{court.occupation_time|date:" H:i:s"}}
+      Reserved at: {{court.occupation_time|date:" H:i:s"}}
     </p>
-    <a class="btn btn-primary" href="{%url 'end_court_occupation' court.id%}"
-      >End Occupation</a
+    <a class="btn btn-danger" href="{%url 'end_court_occupation' court.id%}"
+      >End Reservation</a
     >
     {%else%}
     <p class="card-text">Occupied: No</p>
-    <a class="btn btn-primary" href="{%url 'occupy_court' court.id%}">Occupy</a>
+    <a class="btn btn-success" href="{%url 'reservation' court.id%}"
+      >Reserve Court</a
+    >
 
     {%endif%}
   </div>

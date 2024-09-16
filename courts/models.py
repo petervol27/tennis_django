@@ -8,15 +8,14 @@ class Court(models.Model):
     number = models.PositiveIntegerField(unique=True)
     is_occupied = models.BooleanField(default=False)
     occupation_time = models.DateTimeField(null=True, blank=True)
-    
 
     def __str__(self):
         return self.name
 
-    def occupy(self):
+    def occupy(self, m1, m2):
         self.is_occupied = True
         self.occupation_time = timezone.now()
 
-    def end_occupation(self):
+    def end_occupation(self, m1, m2):
         self.is_occupied = False
         self.occupation_time = None
