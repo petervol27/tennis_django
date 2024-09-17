@@ -8,7 +8,9 @@
     <p class="card-text">Joined at: {{member.join_date}}</p>
     {% if member.court%}
     <p class="card-text">At {{member.court}} Court</p>
-    {%else%} {%endif%}
+    {%else%} {%endif%} {%if member.trainer%}
+    <p class="card-text">Trained by {{member.trainer}}</p>
+    {%else%}{%endif%}
   </div>
 </div>
 <a href="{%url 'members'%}" class="btn btn-primary mt-3">Go Back</a>

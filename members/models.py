@@ -1,5 +1,6 @@
 from django.db import models
 from courts.models import Court
+from trainers.models import Trainer
 from django.utils import timezone
 
 
@@ -12,11 +13,11 @@ class Member(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=13)
     join_date = models.DateField(max_length=254)
-    # trainer = models.ForeignKey(
-    #     Trainer, on_delete=models.SET_NULL, null=True, related_name="members"
-    # )
     court = models.ForeignKey(
         Court, on_delete=models.SET_NULL, null=True, blank=True, related_name="members"
+    )
+    trainer = models.ForeignKey(
+        Trainer, on_delete=models.SET_NULL, null=True, related_name="trainees"
     )
 
     def __str__(self):

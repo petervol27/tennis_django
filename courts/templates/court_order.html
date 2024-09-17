@@ -21,10 +21,10 @@
       {%endfor%}
     </select>
   </div>
-  <button class="btn btn-primary mt-2" type="submit">Reserve</button>
+  <button class="btn btn-success mt-2" type="submit">Reserve</button>
   {%if errortxt%}
   <h5 class="text-danger mt-3">{{errortxt}}</h5>
   {%endif%}
 </form>
-
+<a href="{%url 'courts'%}" class="btn btn-primary mt-3">Go Back</a>
 {%endblock%}

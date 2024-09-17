@@ -1,11 +1,18 @@
-{%extends 'base.html'%}
-{%block title%} {{trainer.fname}} {{trainer.lname}} {%endblock%}
-{%block content%}
+{%extends 'base.html'%} {%block title%} {{trainer.fname}} {{trainer.lname}}
+{%endblock%} {%block content%}
 <div class="card">
   <div class="card-body">
     <p class="title">{{trainer.fname}} {{trainer.lname}}</p>
     <p class="card-text">Email: {{trainer.email}}</p>
     <p class="card-text">Phone: {{trainer.phone}}</p>
+    {% if trainer.trainees.all%}
+    <ul class="list-group">
+      <h3>Trainees:</h3>
+      {%for trainee in trainer.trainees.all%}
+      <li class="list-group-item w-25 mx-auto">{{trainee}}</li>
+      {%endfor%}
+    </ul>
+    {%endif%}
   </div>
 </div>
 <a href="{%url 'trainers'%}" class="btn btn-primary mt-3">Go Back</a>

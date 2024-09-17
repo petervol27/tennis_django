@@ -41,7 +41,6 @@ def reservation(request, id):
         print(member2_id)
         if member1_id == member2_id or member1_id == "" or member2_id == "":
             error = "Has to be two different members or not an empty option!"
-            print("nope")
             context = {
                 "court": chosen_court,
                 "available_members": available_members,
@@ -49,7 +48,6 @@ def reservation(request, id):
             }
             return render(request, "court_order.html", context)
         else:
-            print("yes")
             member1 = Member.objects.get(id=member1_id)
             member2 = Member.objects.get(id=member2_id)
             member1.court = chosen_court
