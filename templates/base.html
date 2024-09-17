@@ -20,9 +20,11 @@
     ></script>
     <title>{%block title%}Document{%endblock%}</title>
   </head>
-  <body class="text-center" id="pageBody">
-    {%include 'navbar.html'%} {%block content%} {%endblock%}
-    <footer class="mt-2 position-relative">&copy;Tennis company 2024</footer>
+  <body class="text-center d-flex flex-column min-vh-100" id="pageBody">
+    <main class="flex-grow-1">
+      {%include 'navbar.html'%} {%block content%} {%endblock%}
+    </main>
+    <footer class="p-2 position-relative">&copy;Tennis company 2024</footer>
     <div class="d-flex position-absolute bottom-0 end-0">
       <button
         class="btn btn-outline-dark bg-secondary rounded-circle"
