@@ -37,9 +37,15 @@
 </html>
 <script>
   let currentTheme = localStorage.getItem('theme');
-  if (!currentTheme) {
-    localStorage.setItem('theme', 'light');
-  }
+  window.addEventListener('load', (event) => {
+    if (!currentTheme) {
+      localStorage.setItem('theme', 'light');
+      currentTheme = 'light';
+      themeIcon.classList.add('bi-sun');
+      toggle.classList.add('bg-dark');
+    }
+  });
+
   const toggle = document.getElementById('themeToggle');
   const body = document.getElementById('pageBody');
   let themeIcon = document.getElementById('themeIcon');
