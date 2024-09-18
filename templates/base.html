@@ -37,6 +37,9 @@
 </html>
 <script>
   let currentTheme = localStorage.getItem('theme');
+  if (!currentTheme) {
+    localStorage.setItem('theme', 'light');
+  }
   const toggle = document.getElementById('themeToggle');
   const body = document.getElementById('pageBody');
   let themeIcon = document.getElementById('themeIcon');
