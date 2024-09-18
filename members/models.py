@@ -16,9 +16,6 @@ class Member(models.Model):
     court = models.ForeignKey(
         Court, on_delete=models.SET_NULL, null=True, blank=True, related_name="members"
     )
-    trainer = models.ForeignKey(
-        Trainer, on_delete=models.SET_NULL, null=True, related_name="trainees"
-    )
 
     def __str__(self):
         return f"{self.fname} {self.lname} "
